@@ -17,8 +17,9 @@ use App\Http\Controllers\BooksController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/books', [BooksController::class,'index']);
-Route::get('/books/{id}', [BooksController::class,'getBooksById']);
-Route::post('/books', [BooksController::class,'add']);
-Route::put('/books', [BooksController::class,'update']);
-Route::delete('/books/{id}', [BooksController::class,'remove']);
+Route::get('/books', [BooksController::class, 'index']);
+Route::get('/books/{id}', [BooksController::class, 'getBooksById']);
+Route::get('/books/search/{id}', [BooksController::class,'searchBook']);
+Route::post('/books', [BooksController::class, 'add']);
+Route::put('/books/{id}', [BooksController::class, 'update']);
+Route::delete('/books/{id}', [BooksController::class, 'remove']);

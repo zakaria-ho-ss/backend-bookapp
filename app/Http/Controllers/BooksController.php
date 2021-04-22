@@ -37,8 +37,8 @@ class BooksController extends Controller
 
 
     }
-    function update(Request $req){
-        $book =  Book::find($req->id);
+    function update(Request $req,$id){
+        $book =  Book::find($id);
         $book->title = $req->title;
         $book->description = $req->description;
         $result = $book->save();
@@ -60,4 +60,8 @@ class BooksController extends Controller
             return ["result" => "book has not been deleted"];
         }
     } 
+    function searchBook($word){
+        return Book::where("title","like","%".$word."%")->get();
+    }
 }
+
