@@ -27,6 +27,9 @@ class BooksController extends Controller
     function add(Request $req)
     {
         $book = new Book;
+
+        $author = Author::find(1);
+        $book->author()->associate($author);
         $book->title = $req->title;
         $book->description = $req->description;
         $result = $book->save();
