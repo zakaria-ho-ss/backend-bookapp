@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\AuthorController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +25,5 @@ Route::get('/books/search/{id}', [BooksController::class,'searchBook']);
 Route::post('/books', [BooksController::class, 'add']);
 Route::put('/books/{id}', [BooksController::class, 'update']);
 Route::delete('/books/{id}', [BooksController::class, 'remove']);
+Route::get('/authors/{id}/books', [AuthorController::class, 'getBooks']);
+Route::get('/books/{id}/author', [BooksController::class, 'getAuthor']);

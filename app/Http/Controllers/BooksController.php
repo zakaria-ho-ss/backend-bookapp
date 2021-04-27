@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Author;
+
 
 class BooksController extends Controller
 {
@@ -62,6 +64,12 @@ class BooksController extends Controller
     } 
     function searchBook($word){
         return Book::where("title","like","%".$word."%")->get();
+    }
+    
+    function getAuthor($id)
+    {
+
+        return Book::find($id)->author;
     }
 }
 
