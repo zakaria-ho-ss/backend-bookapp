@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model
+class Image extends Model
 {
     use HasFactory;
-    public function books()
+    public function book()
     {
-        return $this->hasMany(Book::class);
+        return $this->hasOne(Book::class);
     }
 }
