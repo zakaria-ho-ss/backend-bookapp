@@ -72,7 +72,7 @@ class BooksController extends Controller
     }
     function remove($id){
         $book =  Book::find($id);
-    
+
         $result = $book->delete();
 
         if ($result) {
@@ -80,15 +80,15 @@ class BooksController extends Controller
         } else {
             return ["result" => "book has not been deleted"];
         }
-    } 
+    }
     function searchBook($word){
         return Book::where("title","like","%".$word."%")->get();
     }
-    
+
     function getAuthor($id)
     {
 
-        return Book::find($id)->author;
+        return Book::find($id)->user;
     }
 }
 

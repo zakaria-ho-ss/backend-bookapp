@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
-    public function author(){
+    public function user(){
 
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(User::class);
     }
 
     public function getTitleAttribute($value)
