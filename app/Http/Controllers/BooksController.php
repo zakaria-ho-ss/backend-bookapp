@@ -28,7 +28,6 @@ class BooksController extends Controller
     function add(Request $req)
     {
         $book_image = new Image;
-        $book_image->resolution = "20";
         $book_image->url = explode("/", $req->file('image')->store('public'))[1];
         $result_img = $book_image->save();
 
