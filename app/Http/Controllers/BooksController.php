@@ -36,7 +36,7 @@ class BooksController extends Controller
             $book = new Book;
             $img = Image::where("url", explode("/", $req->file('image')->store('public'))[1])->get()[0]->id;
             $book->image_id = $img;
-            $author = User::find(1);
+            $author = User::find($req->user_id);
             $book->user()->associate($author);
             $book->title = $req->title;
             $book->description = $req->description;
